@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="5b592071-27ba-47f1-8fba-fb635a80a510" >
+		<http:listener-connection host="localhost" port="8082" />
+	</http:listener-config>
+	<flow name="test_repository_usecaseFlow" doc:id="8c467a4a-d54b-4ff8-a274-91dc23d2ac6e" >
+		<http:listener doc:name="Listener" doc:id="bdf1b7ef-8750-4e5e-a9bb-12b6914e3ac0" config-ref="HTTP_Listener_config" path="/testrepository"/>
+		<set-payload value='#["Git hub Repository tested successfully.."]' doc:name="Set Payload" doc:id="52cd9bab-f75d-48d8-a3c4-13044506ac11" />
+	</flow>
+</mule>
